@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+
+    <main>
+        <section class="task-input">
+            <h2>Add New Task</h2>
+            <form id="taskForm" aria-label="Add task form">
+                <div class="form-group">
+                    <label for="taskInput">Task Description:</label>
+                    <input type="text" id="taskInput" name="taskInput" required 
+                           aria-required="true" placeholder="Enter your task">
+                </div>
+                <button type="submit" aria-label="Add task">Add Task</button>
+            </form>
+        </section>
+
+        <section class="task-list">
+            <h2>Tasks</h2>
+            <ul id="taskList" aria-label="Task list"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
