@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #FF69B4;     /* Hot pink */
+    --secondary-color: #FFB6C1;   /* Light pink */
+    --background-color: #FFF0F5;  /* Lavender blush */
+    --success-color: #DB7093;     /* Pale violet red */
+    --danger-color: #FF1493;      /* Deep pink */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+.task-input {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.task-list {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-text {
+    flex-grow: 1;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    margin-left: 1rem;
+}
+
+.complete-btn {
+    background-color: var(--success-color);
+    margin-left: 1rem;
+}
+
+.task-filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Add this to hide filtered tasks */
+.task-item.hidden {
+    display: none;
+}

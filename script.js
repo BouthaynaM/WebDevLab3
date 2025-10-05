@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create new task element
     function createTaskElement(task, index) {
+        // Input validation - skip if task text is empty after trimming
+        if (!task.text || task.text.trim() === '') {
+            return;
+        }
+
+        // Trim whitespace from task text
+        task.text = task.text.trim();
+
         const li = document.createElement('li');
         li.className = 'task-item';
         li.setAttribute('role', 'listitem');
@@ -81,4 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     renderTasks();
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            const filterType = button.getAttribute('data-filter');
+            filterTasks(filterType);
+        });
+    });
+
+    function filterTasks(filterType) {
+        const tasks = document.querySelectorAll('.task-item');
+        
+        tasks.forEach(task => {
+            const isCompleted = task.querySelector('input[type="checkbox"]').checked;
+            task.classList.remove('hidden');
+            
+            if (filterType === 'completed' && !isCompleted) {
+                task.classList.add('hidden');
+            } else if (filterType === 'pending' && isCompleted) {
+                task.classList.add('hidden');
+            }
+        });
+    }
 });
